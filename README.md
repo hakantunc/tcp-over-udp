@@ -29,7 +29,7 @@ Bonus points for any extra features of TCP like flow control.
 ## Details
 
 In essence, you will implement TCP-like protocol within UDP data. UDP
-data will consist of TCP header and TCP body.
+data will consist of your protocol's header and body.
 
 ![](https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/UDP_encapsulation.svg/500px-UDP_encapsulation.svg.png)
 
