@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Reliable UDP</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <link rel="stylesheet" href="github-pandoc.css">
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<h1 id="reliable-protocol-over-udp">Reliable protocol over UDP</h1>
+<p>User Datagram Protocol (UDP) is a minimal protocol running over IP. In this assignment you will implement a reliable message protocol over UDP. You will emulate a subset of TCP protocol. Features to be implemented are:</p>
+<ul>
+<li>Establish a connections</li>
+<li>Ordered data transfer</li>
+<li>Retransmission of lost packets</li>
+</ul>
+<p>We provide you templates for client and server applications for <strong>Python 3</strong>.</p>
+<p>We plan to update this document as it's needed. If there's any major update we'll make an announcement.</p>
+<h2 id="milestone-1---due-march-29">Milestone 1 - due March 29</h2>
+<p>Connection setup &amp; teardown, due 3/29</p>
+<p>Check the <strong>1 Establish a connection</strong> and <strong>3 Tear down the connection</strong> sections below.</p>
+<h2 id="milestone-2---due-april-10">Milestone 2 - due April 10</h2>
+<p>Data transfer with retransmission of lost packets</p>
+<p>Bonus points for any extra features of TCP like flow control.</p>
+<h2 id="details">Details</h2>
+<p>In essence, you will implement TCP-like protocol within UDP data. UDP data will consist of TCP header and TCP body.</p>
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/UDP_encapsulation.svg/500px-UDP_encapsulation.svg.png" /></p>
+<h3 id="provided-template-code">Provided template code</h3>
+<p>Please, read and understand the provided template code. There are three python files are provided.</p>
+<h4 id="utilspy">utils.py</h4>
+<p>This file implements States Enum type, header type for your own protocol and some helper functions. You will need to extend these classes for your needs as they are missing some states or fields.</p>
+<h5 id="debug">DEBUG</h5>
+<p>If you set <code>DEBUG = True</code>, it will print extra information as your application is running. If you need to print debug information as you develop application, check this variable before printing. Set this value to <code>False</code> when you're submitting the code.</p>
+<h5 id="states">States</h5>
+<p><code>class States</code>: implements Enum types to represent TCP protocol states.</p>
+<p>Please refer to <a href="https://en.wikipedia.org/wiki/Transmission_Control_Protocol#/media/File:Tcp_state_diagram_fixed_new.svg"></a></p>
+<h3 id="serverpy">server.py</h3>
+<p>Read the comments in the file</p>
+<h3 id="clientpy">client.py</h3>
+<p><code>MSS = 12</code>: we use pretty small segment size to make it easier to test and demo. We will need to divide long messages into a number of packets.</p>
+<p>Read the comments in the file</p>
+<h5 id="header">Header</h5>
+<p>This class represents the Header of your own protocol and provides some helper methods.</p>
+<p>The header has 12 bytes. First 4 bytes represent <em>sequence_number</em>, the second 4 bytes represent <em>acknowledge_number</em> and the next two bits represent the syn and ack header fields. The remaining 30 bits are currenctly unused. You can utilize the rest for your needs.</p>
+<h2 id="steps">Steps</h2>
+<h3 id="1-establish-a-connection">1 Establish a connection</h3>
+<p>Implement the TCP 3-way Handshake Protocol</p>
+<p>Please refer to Connection establishment section: <a href="https://en.wikipedia.org/wiki/Transmission_Control_Protocol#Connection_establishment" class="uri">https://en.wikipedia.org/wiki/Transmission_Control_Protocol#Connection_establishment</a></p>
+<ul>
+<li>Server is waiting for a connection</li>
+<li>Client sends a SYN</li>
+<li>Server replies with SYN-ACK</li>
+<li>Client replies with ACK</li>
+</ul>
+<h3 id="2-transfer-the-data">2 Transfer the data</h3>
+<p>UDP is an unreliable protocol. Some of the packages might be lost or received in different order. Implement the TCP-like protocol to retransmit the missing packages. Client should order the packets correctly.</p>
+<h3 id="3-tear-down-the-connection">3 Tear down the connection</h3>
+<p>Bonus: TIME_WAIT state implementation is bonus points. You won't lose points if you don't implement TIME_WAIT.</p>
+<h2 id="resources">Resources</h2>
+<p><a href="https://en.wikipedia.org/wiki/Transmission_Control_Protocol#Protocol_operation" class="uri">https://en.wikipedia.org/wiki/Transmission_Control_Protocol#Protocol_operation</a> <a href="https://tools.ietf.org/html/draft-gg-udt-03" class="uri">https://tools.ietf.org/html/draft-gg-udt-03</a></p>
+</body>
+</html>
