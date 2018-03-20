@@ -45,6 +45,14 @@ while True:
     # initiation
     if header.syn == 1:
       seq_number = utils.rand_int() # we randomly pick a sequence number
+      ack_number = header.seq_num + 1
+      # to be implemented
+
+      ### sending message from the server:
+      #   use the following method to send messages back to client
+      #   addr is recieved when we receive a message from a client (see above)
+      #   sock.sendto(your_header_object.bits(), addr)
+
   elif server_state == States.SYN_RECEIVED:
     pass
   elif server_state == States.SYN_SENT:

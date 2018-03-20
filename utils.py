@@ -48,8 +48,8 @@ def pretty_bits_print(bits):
 	seq_num = bits[:32]
 	ack_num = bits[32:64]
 	row_3 = bits[64:]
-	output = [seq_num+" : seq = {0}".format(int(seq_num,2))]
-	output.append(ack_num+" : ack = {0}".format(int(ack_num,2)))
+	output = [seq_num+" : seq_num = {0}".format(int(seq_num,2))]
+	output.append(ack_num+" : ack_num = {0}".format(int(ack_num,2)))
 	output.append(row_3+" : syn = {0}, ack = {1}".format(row_3[0], row_3[1]))
 	return '\n'.join(output)
 

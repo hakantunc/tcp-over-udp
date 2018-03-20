@@ -75,6 +75,7 @@ class Client:
     if p.is_alive():
       p.terminate()
       p.join()
+    # here you can update your client's instance variables.
     self.last_received_ack = lst_rec_ack_shared.value
 
 # we create a client, which establishes a connection
