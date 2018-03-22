@@ -87,6 +87,9 @@ received in different order. Implement the TCP-like protocol to
 retransmit the missing packages. Client should order the packets
 correctly.
 
+You are free to choose a protocol for retranmission:
+- stop and wait
+
 ### 3 Tear down the connection
 
 Bonus: TIME_WAIT state implementation is bonus points. You won't lose points if you don't implement TIME_WAIT.
