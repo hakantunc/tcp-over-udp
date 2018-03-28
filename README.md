@@ -1,3 +1,15 @@
+# Updates
+
+## March 27
+
+- When submitting your file, please add a readme file with any modifications you made.
+- You can receive bonus points if you implement any additional TCP feature or additional error case handling (like What to do if the client never received syn+ack). If you're not sure you're on the right track, please email me. Please, state the additional feature you're implementing, possibly with a citation from the TCP reference.
+- You don't need to use `receive_acks` for milestone 1. You can receive and parse a message with
+```py
+recv_data, addr = sock.recvfrom(1024)
+header = utils.bits_to_header(recv_data)
+```
+
 # Reliable protocol over UDP
 
 User Datagram Protocol (UDP) is a minimal protocol running over IP. In
