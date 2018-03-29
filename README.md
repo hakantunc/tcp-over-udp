@@ -1,5 +1,11 @@
 # Updates
 
+## March 29
+
+Viewing a sample of TCP transaction messages might be helpful for understanding the protocol.
+
+Download wireshark traces from [this link](http://www-net.cs.umass.edu/wireshark-labs/wireshark-traces.zip) and open tcp-ethereal-trace-1 file with Wireshark. You can find more instructions on [this page](http://www-net.cs.umass.edu/wireshark-labs/).
+
 ## March 27
 
 - When submitting your file, please add a readme file with any modifications you made.
